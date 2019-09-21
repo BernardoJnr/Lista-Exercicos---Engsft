@@ -1,4 +1,4 @@
-﻿package javaExercicios;
+package javaapplication1;
 
 import java.util.Scanner;
 
@@ -52,16 +52,14 @@ public class JavaApplication1 {
         //ex943();
         //ex944();
         //ex945();
-        //ex946();
         //ex947();
         //ex948();
-        //ex949();
         //ex950();
         //ex951();
         //ex952();
         //ex953();
         //ex954();
-        ex955();
+          ex955();
     }
 
     static void ex1() {
@@ -770,27 +768,6 @@ public class JavaApplication1 {
         }
     }
 
-    static void ex946() {
-        Boolean A = true, B = true, C = false;
-        if (A && B || A ^ B) {
-            System.out.println("Verdade!!");
-        } else {
-            System.out.println("Mentira!!");
-        }
-
-        if (A || B && A && C) {
-            System.out.println("Verdade!!");
-        } else {
-            System.out.println("Mentira!!");
-        }
-
-        if (A || C && B || A && !B) {
-            System.out.println("Verdade!!");
-        } else {
-            System.out.println("Mentira!!");
-        }
-    }
-
     static void ex947() {
         Scanner novo = new Scanner(System.in);
 
@@ -832,40 +809,6 @@ public class JavaApplication1 {
         } else {
             System.out.println("codigo: " + codigo + "\nIdade: " + idade + "\n Tempo de trabalho: " + tempoT + "\nNão requerer!!");
         }
-    }
-
-    static void ex949() {
-        Scanner novo = new Scanner(System.in);
-
-        System.out.print("A: ");
-        int A = novo.nextInt();
-        System.out.print("B: ");
-        int B = novo.nextInt();
-        System.out.print("C: ");
-        int C = novo.nextInt();
-        String mens = novo.nextLine();
-
-        if ((A < B + C) && (B < A + C) && (C < A + B)) {
-            if ((A == B) && (B == C)) {
-                mens = "Triangulo equilatero!!";
-            } else if ((A == B) || (B == C) || (A == C)) {
-                mens = "Triangulo isóceles!!";
-            } else {
-                mens = "Triangulo escaleno!!";
-            }
-        } else {
-            System.out.println("Não é possivel formar um triangulo");
-        }
-
-        System.out.println(mens);
-        /*
-         Respostas da tabela:
-         Não é possivel formar um triangulo
-         Triangulo escaleno
-         Triangulo isóceles
-         Triangulo equilatero
-         Triangulo isóceles		
-         */
     }
 
     static void ex950() {
@@ -956,25 +899,60 @@ public class JavaApplication1 {
         System.out.println("Valor: " + valor);
     }
 
-    static void ex955() {
+    static void ex954() {
         Scanner novo = new Scanner(System.in);
-        String resposta = novo.next();
+        double nota1;
+        double nota2;
 
         do {
-            System.out.print("Primeiro valor: ");
-            int valor1 = novo.nextInt();
-            System.out.print("Segundo valor: ");
-            int valor2 = novo.nextInt();
-
-            if (valor1 > valor2) {
-                System.out.println("Primeiro é maior!!");
-            } else if (valor2 > valor1) {
-                System.out.println("Segundo é maior!!");
-            } else {
-                System.out.println("Numeros iguais!!");
+            System.out.print("Primeiro nota: ");
+            nota1 = novo.nextInt();
+            if (nota1 < 0 || nota1 > 10) {
+                System.out.print("Primeiro nota: ");
+                nota1 = novo.nextInt();
             }
-            System.out.println("Novo calculo?[S/N]");
-            resposta = novo.next();
-        } while (resposta == "S");
+            System.out.print("Segunda nota: ");
+            nota2 = novo.nextInt();
+            if (nota2 < 0 || nota2 > 10) {
+                System.out.print("Segunda nota: ");
+                nota2 = novo.nextInt();
+            }
+        } while (nota1 < 0 || nota1 > 10 && nota2 < 0 || nota2 > 10);
+
+        System.out.println("Media: " + (nota1 + nota2) / 2);
+    }
+
+    static void ex955() {
+        Scanner novo = new Scanner(System.in);
+
+        System.out.println("Quantidade em Kg de morango: ");
+        double morango = novo.nextDouble();
+        System.out.println("Quantidade em Kg de maça: ");
+        double maca = novo.nextDouble();
+
+        double valorMo = 0;
+        double valorMa = 0;
+
+        if (morango <= 5) {
+            valorMo = (morango * 2.50);
+        } else {
+            valorMo = (morango * 2.20);
+        }
+        if (maca <= 5) {
+            valorMa = (maca * 1.80);
+        } else {
+            valorMa = (maca * 1.50);
+        }
+
+        if (valorMo > 25 || morango > 8) {
+            System.out.println("Valor morango:" + (valorMo - (valorMo * 0.1)));
+        } else {
+            System.out.println("Valor morango:" + valorMo);
+        }
+        if (valorMa > 25 || maca > 8) {
+            System.out.println("Valor maçã:" + (valorMa - (valorMa * 0.1)));
+        } else {
+            System.out.println("Valor maçã:" + valorMa);
+        }
     }
 }
